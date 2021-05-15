@@ -1,0 +1,15 @@
+{
+  "name": "windows",
+  "version": "1.0.0",
+  "description": "Web-app with window-like structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon . --ignore \"./public\""
+  },
+  "keywords": [],
+  "author": "Me",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
