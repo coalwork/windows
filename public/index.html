@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>windows</title>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <script type="module">
+      import Window from '/scripts/Window.js';
+    </script>
+    <script>
+      const lmc = [{ x: 0, y: 0 }];
+
+      addEventListener('mousemove', ({ clientX, clientY }) => {
+        lmc.unshift({ x: clientX, y: clientY });
+        lmc.length = 2;
+        // console.log([lmc[0].x - lmc[1].x, lmc[0].y - lmc[1].y]);
+
+        Array.from(document.querySelectorAll('app-window')).forEach(window => {
+          window.setAttribute('data-past-coords', `${lmc[1].x},${lmc[1].y}`);
+          window.setAttribute('data-coords', `${lmc[0].x},${lmc[0].y}`);
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <main class="main-doc">
+      <app-window>
+      </app-window>
+    </main>
+    <nav class="main-doc">
+    </nav>
+  </body>
+</html>
