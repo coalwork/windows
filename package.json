@@ -9,6 +9,7 @@
   "keywords": [],
   "author": "Me",
   "license": "ISC",
+  "repository": "https://github.com/coalwork/windows",
   "dependencies": {
     "express": "^4.17.1"
   }
