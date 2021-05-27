@@ -43,7 +43,7 @@ export default class Window extends HTMLElement {
     addEventListener('mousemove', () => {
       if (!mouseIsDown) return;
 
-      const [mouseX, mouseY] = this.getAttribute('data-coords').split(',');
+      const [mouseX, mouseY] = globalThis.globals['data-coords'];
 
       this.resizeWindow(
         mouseX - this.offsetLeft,
@@ -76,8 +76,8 @@ export default class Window extends HTMLElement {
     addEventListener('mousemove', () => {
       if (!mouseIsDown) return;
 
-      const [pmouseX, pmouseY] = this.getAttribute('data-past-coords').split(',');
-      const [mouseX, mouseY] = this.getAttribute('data-coords').split(',');
+      const [pmouseX, pmouseY] = globalThis.globals['data-past-coords'];
+      const [mouseX, mouseY] = globalThis.globals['data-coords'];
 
       this.moveWindow(
         this.offsetLeft + (mouseX - pmouseX),

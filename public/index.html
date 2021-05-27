@@ -8,15 +8,14 @@
     </script>
     <script>
       const lmc = [{ x: 0, y: 0 }];
+      globalThis.globals = {};
 
       addEventListener('mousemove', ({ clientX, clientY }) => {
         lmc.unshift({ x: clientX, y: clientY });
         lmc.length = 2;
 
-        Array.from(document.querySelectorAll('app-window')).forEach(window => {
-          window.setAttribute('data-past-coords', `${lmc[1].x},${lmc[1].y}`);
-          window.setAttribute('data-coords', `${lmc[0].x},${lmc[0].y}`);
-        });
+        globalThis.globals['data-past-coords'] = [lmc[1].x, lmc[1].y];
+        globalThis.globals['data-coords'] = [lmc[0].x, lmc[0].y];
       });
     </script>
     <link rel="stylesheet" href="styles/index.css" />
