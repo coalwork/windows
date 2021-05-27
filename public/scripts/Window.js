@@ -25,12 +25,19 @@ export default class Window extends HTMLElement {
     shadow.append(template.content.cloneNode(true));
 
     this.classList.add('windowed');
+    console.log('bruh');
 
     const windowTitle = shadow.getElementById('window-title'); 
     windowTitle.innerText = this.getAttribute('data-title') || windowTitle.innerText;
 
     this.dragToResize();
     this.dragToMove();
+
+    connectedWindows.update();
+  }
+
+  disconnectedCallback() {
+    connectedWindows.update();
   }
 
   dragToResize() {

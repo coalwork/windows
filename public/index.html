@@ -8,6 +8,7 @@
     </script>
     <script>
       const lmc = [{ x: 0, y: 0 }];
+      const connectedWindows = [];
       globalThis.globals = {};
 
       addEventListener('mousemove', ({ clientX, clientY }) => {
@@ -17,6 +18,11 @@
         globalThis.globals['data-past-coords'] = [lmc[1].x, lmc[1].y];
         globalThis.globals['data-coords'] = [lmc[0].x, lmc[0].y];
       });
+
+      connectedWindows.update = function() {
+        this.length = 0;
+        this.push(Array.from(document.getElementsByTagName('app-window')));
+      };
     </script>
     <link rel="stylesheet" href="styles/index.css" />
   </head>
